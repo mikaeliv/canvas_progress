@@ -1,9 +1,11 @@
 package ru.mikaeliv.canvas
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.LinearInterpolator
 
 class ProgressView @JvmOverloads constructor(
     context: Context,
@@ -20,6 +22,7 @@ class ProgressView @JvmOverloads constructor(
             (this.height / 2 + 200).toFloat()
         )
     }
+    private var previousAngle: Float = 0f
     private var sweepAngle: Float = 0f
 
     override fun onDraw(canvas: Canvas?) {
@@ -50,8 +53,15 @@ class ProgressView @JvmOverloads constructor(
 
     fun setProgress(progress: Float) {
         val p = if (progress > 100f) 100f else progress
-        sweepAngle = p * ONE_PERCENT
-        this.invalidate()
+        ValueAnimator.ofFloat(previousAngle, p * ONE_PERCENT).apply {
+            duration = 650
+            interpolator = LinearInterpolator()
+            addUpdateListener {
+                sweepAngle = it.animatedValue as Float
+                this@ProgressView.invalidate()
+            }
+        }.start()
+        previousAngle = p * ONE_PERCENT
     }
 
     companion object {
