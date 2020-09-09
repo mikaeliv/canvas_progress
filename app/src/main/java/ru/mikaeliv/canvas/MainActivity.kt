@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
         btnApply.setOnClickListener {
             progress.setProgress(etProgress.text.toString().toFloat())
+            tvProgressCount.text = etProgress.text.toString()
         }
     }
 }

@@ -13,12 +13,49 @@
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/tvProgressCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="56"
+        android:text="0"
+        android:textSize="25sp"
+        android:textColor="@color/colorDarkBlue"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/progress"
+        app:layout_constraintBottom_toBottomOf="@id/progress"
+        app:layout_constraintVertical_bias="0.475"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="из 100"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tvProgressCount"
+        app:layout_constraintEnd_toEndOf="@id/tvProgressCount"
+        app:layout_constraintTop_toBottomOf="@id/tvProgressCount"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/progress"
+        app:layout_constraintBottom_toBottomOf="@id/progress"
+        app:layout_constraintVertical_bias="0.58"/>
+
     <EditText
         android:id="@+id/etProgress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnApply"
         app:layout_constraintBottom_toBottomOf="parent"/>
