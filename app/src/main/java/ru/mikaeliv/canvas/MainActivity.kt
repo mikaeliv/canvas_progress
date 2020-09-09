@@ -2,7 +2,6 @@ package ru.mikaeliv.canvas
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.activity_main.*
 
