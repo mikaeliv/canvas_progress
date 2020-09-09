@@ -20,6 +20,7 @@ class ProgressView @JvmOverloads constructor(
             (this.height / 2 + 200).toFloat()
         )
     }
+    private var sweepAngle: Float = 0f
 
     override fun onDraw(canvas: Canvas?) {
         canvas ?: return
@@ -34,7 +35,7 @@ class ProgressView @JvmOverloads constructor(
 
         paint.color = Color.GREEN
 
-        canvas.drawArc(rectf, 145f, 60f, false, paint)
+        canvas.drawArc(rectf, 145f, sweepAngle, false, paint)
 
         paint.color = Color.WHITE
 
@@ -45,5 +46,14 @@ class ProgressView @JvmOverloads constructor(
             (this.height / 2 + 115).toFloat(),
             paint
         )
+    }
+
+    fun setProgress(progress: Float) {
+        sweepAngle = progress * ONE_PERCENT
+        this.invalidate()
+    }
+
+    companion object {
+        const val ONE_PERCENT = 2.5f
     }
 }
