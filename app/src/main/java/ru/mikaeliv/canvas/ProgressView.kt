@@ -6,6 +6,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.LinearInterpolator
+import androidx.core.content.ContextCompat
 
 class ProgressView @JvmOverloads constructor(
     context: Context,
@@ -29,14 +30,14 @@ class ProgressView @JvmOverloads constructor(
         canvas ?: return
 
         paint.apply {
-            color = Color.RED
+            color = ContextCompat.getColor(this@ProgressView.context, R.color.colorLightBlue)
             strokeWidth = 20f
             style = Paint.Style.STROKE
         }
 
         canvas.drawArc(rectf, 145f, 250f, false, paint)
 
-        paint.color = Color.GREEN
+        paint.color = ContextCompat.getColor(context, R.color.colorDarkBlue)
 
         canvas.drawArc(rectf, 145f, sweepAngle, false, paint)
 
