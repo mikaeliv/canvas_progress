@@ -30,7 +30,7 @@ class ProgressView @JvmOverloads constructor(
 
         paint.apply {
             color = Color.RED
-            strokeWidth = 10f
+            strokeWidth = 20f
             style = Paint.Style.STROKE
         }
 
