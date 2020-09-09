@@ -49,7 +49,8 @@ class ProgressView @JvmOverloads constructor(
     }
 
     fun setProgress(progress: Float) {
-        sweepAngle = progress * ONE_PERCENT
+        val p = if (progress > 100f) 100f else progress
+        sweepAngle = p * ONE_PERCENT
         this.invalidate()
     }
 
