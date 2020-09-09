@@ -53,8 +53,7 @@ class ProgressView @JvmOverloads constructor(
     }
 
     fun setProgress(progress: Float) {
-        val p = if (progress > 100f) 100f else progress
-        ValueAnimator.ofFloat(previousAngle, p * ONE_PERCENT).apply {
+        ValueAnimator.ofFloat(previousAngle, progress * ONE_PERCENT).apply {
             duration = 800
             interpolator = LinearInterpolator()
             addUpdateListener {
@@ -62,7 +61,7 @@ class ProgressView @JvmOverloads constructor(
                 this@ProgressView.invalidate()
             }
         }.start()
-        previousAngle = p * ONE_PERCENT
+        previousAngle = progress * ONE_PERCENT
     }
 
     companion object {

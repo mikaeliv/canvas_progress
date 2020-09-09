@@ -21,7 +21,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
-        progress.setProgress(etProgress.text.toString().toFloat())
-        tvProgressCount.text = etProgress.text.toString()
+        val currentProgress = etProgress.text.toString().toFloat()
+        val p = when {
+            currentProgress > 100f -> 100f
+            currentProgress < 0f -> 0f
+            else -> currentProgress
+        }
+        progress.setProgress(p)
+        tvProgressCount.text = p.toString()
     }
 }
