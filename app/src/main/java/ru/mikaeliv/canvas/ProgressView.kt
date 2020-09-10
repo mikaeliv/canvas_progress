@@ -41,15 +41,15 @@ class ProgressView @JvmOverloads constructor(
 
         canvas.drawArc(rectf, 145f, sweepAngle, false, paint)
 
-        /*paint.color = Color.WHITE
+        paint.color = Color.WHITE
 
         canvas.drawLine(
             (this.width / 2 - 200).toFloat(),
-            (this.height / 2 + 115).toFloat(),
+            (this.height / 2 + 122).toFloat(),
             (this.width / 2 + 200).toFloat(),
-            (this.height / 2 + 115).toFloat(),
+            (this.height / 2 + 122).toFloat(),
             paint
-        )*/
+        )
     }
 
     fun setProgress(progress: Float) {
