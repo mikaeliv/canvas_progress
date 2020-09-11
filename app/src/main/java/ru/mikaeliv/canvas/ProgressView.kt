@@ -14,27 +14,25 @@ class ProgressView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ): View(context, attrs, defStyleAttr) {
 
-    private val paint by lazy { Paint() }
-    private val rectf by lazy {
-        RectF(
-            (this.width / 2 - 200).toFloat(),
-            (this.height / 2 - 200).toFloat(),
-            (this.width / 2 + 200).toFloat(),
-            (this.height / 2 + 200).toFloat()
-        )
-    }
+    private val paint = Paint()
+    private val rectf = RectF(
+        (this.width / 2 - 200).toFloat(),
+        (this.height / 2 - 200).toFloat(),
+        (this.width / 2 + 200).toFloat(),
+        (this.height / 2 + 200).toFloat()
+    )
     private var previousAngle: Float = 0f
     private var sweepAngle: Float = 0f
 
-    override fun onDraw(canvas: Canvas?) {
-        canvas ?: return
-
+    init {
         paint.apply {
             color = ContextCompat.getColor(this@ProgressView.context, R.color.colorLightBlue)
             strokeWidth = 20f
             style = Paint.Style.STROKE
         }
+    }
 
+    override fun onDraw(canvas: Canvas) {
         canvas.drawArc(rectf, 145f, 250f, false, paint)
 
         paint.color = ContextCompat.getColor(context, R.color.colorDarkBlue)
